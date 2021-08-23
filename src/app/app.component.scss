@@ -1,0 +1,175 @@
+.example-container {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  max-width: 300px;
+  margin: 0px 10px;
+}
+.example-list {
+  border: solid 1px #ccc;
+  min-height: 30px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+  padding: 5px 5px;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.example-box {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 10px 0px 0px 0px;
+  overflow:hidden;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.add-button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.87);
+  color: white;
+  margin-top: 10px;
+  height: 30px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.overlay{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.482);
+  z-index: +2;
+  left:0px;
+  top:0px;
+  cursor: not-allowed;
+}
+.popup {
+  z-index: +4;
+  position: fixed;
+  width: 80vw;
+  height: 80vh;
+  margin: 10vh 10vw;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  &__popup {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+    padding: 50px;
+    max-width: 400px;
+  }
+}
+.cross {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.87);
+  border-radius: 50%;
+  cursor: pointer;
+}
+input {
+  width: calc(100% - 2px);
+  border: 1px solid #ccc;
+  outline: none;
+  height: 30px;
+  border-radius: 4px;
+  margin: 10px 0px;
+  padding: 0px;
+}
+.submit-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.87);
+  height: 30px;
+  width: 100%;
+  border-radius: 4px;
+  border:1px solid rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+  &:disabled{
+    background-color: white;
+    color:rgba(0, 0, 0, 0.87);
+    cursor: not-allowed;
+  }
+}
+.fixed {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: unset;
+  padding: 5px 30px;
+  cursor: pointer;
+}
+.title-container {
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.word-break{
+  word-break: break-all;
+}
+.error-star{
+  font-size: 18px;
+  color:#FF0000;
+}

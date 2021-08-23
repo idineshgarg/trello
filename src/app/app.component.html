@@ -1,0 +1,68 @@
+<div class="">
+  <div class="fixed submit-bottom" (click)="openDialogForList()">Add List</div>
+  <div class="">
+    <div cdkDropListGroup>
+      <div class="">
+        <div class="example-container">
+          <div class="container" *ngFor="let list of lists; let i = index">
+            <div
+              cdkDropList
+              [cdkDropListData]="actions[i]"
+              class="example-list"
+              (cdkDropListDropped)="drop($event)"
+            >
+              <div class="title-container">
+                <span>{{ list.title }}</span>
+                <div
+                  class="cross"
+                  (click)="deleteList(i); $event.stopPropagation()"
+                >
+                  X
+                </div>
+              </div>
+              <div
+                class="example-box"
+                *ngFor="let item of actions[i]; let j = index"
+                cdkDrag
+              >
+                <div class="cross" (click)="removeIndexAction(i, j)">X</div>
+                <div class="word-break">
+                  {{ item.title }}
+                </div>
+                <div class="word-break">
+                  {{ item.description }}
+                </div>
+              </div>
+              <div class="add-button" (click)="openDialogForAction(i)">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popup" *ngIf="showAddActionPopup">
+  <div class="cross" (click)="closePopup()">X</div>
+  <div class="popup__popup">
+    <form [formGroup]="addActionForm" (submit)="addActionFromPopup()">
+      <div class="">Name<span class="error-star">*</span></div>
+      <input type="text" formControlName="name" />
+      <div class="">Description<span class="error-star">*</span></div>
+      <input type="text" formControlName="description" />
+      <button class="submit-bottom" type="submit" [disabled]="!addActionForm.valid">SUBMIT</button>
+    </form>
+  </div>
+</div>
+
+<div class="popup" *ngIf="showListPopup">
+  <div class="cross" (click)="closePopup()">X</div>
+  <div class="popup__popup">
+    <form [formGroup]="addListForm" (submit)="addListFromPopup()">
+      <div class="">Name<span class="error-star">*</span></div>
+      <input type="text" formControlName="name" />
+      <button class="submit-bottom" type="submit" [disabled]="!addListForm.valid">SUBMIT</button>
+    </form>
+  </div>
+</div>
+<div class="overlay" *ngIf="showListPopup || showAddActionPopup" ></div>
